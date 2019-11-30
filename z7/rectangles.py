@@ -1,12 +1,6 @@
 from points import Point
 
-class RectangleError(Exception):
 
-    def __init__(self, value):      # nasz konstruktor wyjątku
-        self.value = value
-
-    def __str__(self):              # zmiana sposobu wyświetlania wyjątku
-        return repr(self.value)
 
 
 class Rectangle:
