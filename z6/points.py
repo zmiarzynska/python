@@ -33,10 +33,8 @@ class Point:
         return nowy_punkt
 
     def __mul__(self, other):  # v1 * v2, iloczyn skalarny
-        nowy_punkt = copy.copy(self)
-        nowy_punkt.x *= other.x
-        nowy_punkt.y *= other.y
-        return nowy_punkt
+        multiply=(self.x*other.x)+(self.y*other.y)
+        return multiply
 
     def cross(self, other):         # v1 x v2, iloczyn wektorowy 2D
         return self.x * other.y - self.y * other.x
