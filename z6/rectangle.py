@@ -27,9 +27,9 @@ class Rectangle:
         return not self.__eq__(other)
 
     def center(self):          # zwraca środek prostokąta
-        nowy_punkt=(self.pt2-self.pt1)
-        nowy_punkt.x/=2
-        nowy_punkt.y/=2
+        nowy_punkt=Point(0,0)
+        nowy_punkt.x=(self.pt1.x)/2 + (self.pt2.x)/2
+        nowy_punkt.y=(self.pt1.y)/2 + (self.pt2.y)/2
         return nowy_punkt
 
     def area(self):           # pole powierzchni
@@ -38,11 +38,13 @@ class Rectangle:
         return x*y
 
     def move(self, x, y):      # przesunięcie o (x, y)
-        self.pt1.x+=x
-        self.pt2.x+=x
-        self.pt1.y += y
-        self.pt2.y += y
-        return self.pt1,self.pt2
+
+        x1=self.pt1.x+x
+        x2=self.pt2.x+x
+        y1=self.pt1.y+y
+        y2=self.pt2.y+y
+        prostokat = Rectangle(x1,y1,x2,y2)
+        return prostokat
 
 # Kod testujący moduł.
 import unittest
@@ -65,7 +67,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(Rectangle.area(Rectangle(1, 2, 3, 4)), 4)
 
     def test_move(self):
-        self.assertEqual(Rectangle.move(Rectangle(1,2,3,4),0,1),(Point(1,3),Point(3,5)))
+        self.assertEqual(Rectangle.move(Rectangle(1,2,3,4),0,1),(Rectangle(1,3,3,5)))
 
 if __name__ == "__main__":
     unittest.main()     # wszystkie testy
