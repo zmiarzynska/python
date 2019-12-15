@@ -71,8 +71,6 @@ class SingleList:
         return node
 
 
-    # Zwraca cały węzeł, skraca listę.
-    # Dla pustej listy rzuca wyjątek ValueError.
 
     def merge(self, other):  # klasy O(1)\
         if other.length == 0:
@@ -85,9 +83,6 @@ class SingleList:
             self.tail = other.tail
         self.length += other.count()
 
-
-
-    # Węzły z listy other są przepinane do listy self na jej koniec.
 
     def clear(self): # czyszczenie listy
         self.length=0
