@@ -75,16 +75,16 @@ class SingleList:
     # Dla pustej listy rzuca wyjątek ValueError.
 
     def merge(self, other):  # klasy O(1)\
-        if other.length == 0:
-            pass
-        if self.length == 0:
-            self.head=other.head
-            self.tail=other.tail
-        else:
-            self.tail.next = other.head
-            self.tail = other.tail
-        self.length += other.count()
-        other.clear()
+        if other.length != 0:
+            if self.length == 0:
+                self.head=other.head
+                self.tail=other.tail
+            else:
+                self.tail.next = other.head
+                self.tail = other.tail
+            self.length += other.count()
+            other.clear()
+
 
 
 
