@@ -1,6 +1,6 @@
 import copy
 
-def sort_babel(L):
+def sort_babel(L):               # Uzylam sortowania babelkowego
     temp=len(L)
     for i in range(len(L)):
         for j in range(temp-1):
