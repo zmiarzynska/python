@@ -27,6 +27,7 @@ class RandomQueue:
             self.items[i]=self.items[len(self.items)-1]
             self.items[len(self.items)-1]=None
             self.amount -= 1
+            self.items.pop()
             return temp
 
 
@@ -42,7 +43,25 @@ class RandomQueue:
         self.amount=0
 
 
-randomKolejka=RandomQueue(10)
-randomKolejka.insert(1)
-randomKolejka.insert(2)
-print(randomKolejka.remove())
+
+import unittest
+class TestPoint(unittest.TestCase):
+
+    def test_insert(self):
+        kolejka=RandomQueue(10)
+        kolejka.insert(5)
+        kolejka.insert(10)
+        kolejka.insert(15)
+        self.assertEqual(kolejka.amount,3)
+
+    def test_remove(self):
+        kolejka=RandomQueue(5)
+        kolejka.insert(2)
+        self.assertEqual(kolejka.remove(),2)
+        self.assertEqual(kolejka.amount, 0)
+
+
+
+
+if __name__ == "__main__":
+    unittest.main()     # wszystkie testy
