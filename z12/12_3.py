@@ -1,6 +1,6 @@
 import copy
 
-def sort_babel(L):               # Uzylam sortowania babelkowego
+def sort_babel(L):
     temp=len(L)
     for i in range(len(L)):
         for j in range(temp-1):
@@ -11,7 +11,7 @@ def sort_babel(L):               # Uzylam sortowania babelkowego
 
 def mediana_sort(L, left, right):
     if left<right:
-        newL= copy.copy(L)
+        newL=L[left:right+1]
         sort_babel(newL)
         mid=(left+right)//2
         if (right - left)%2==0:
@@ -23,13 +23,11 @@ def mediana_sort(L, left, right):
 
 
 L=[3,2,5,3,8,2,913,5,14,8]
-print(L)
-print(mediana_sort(L,0,9))
+nowaL=mediana_sort(L,1,9)
+print(nowaL)
 
 
 L=[3,2,5,3,8,2,913,4,14,8]
-print(L)
-print(mediana_sort(L,0,9))
-
-
+nowaL2=mediana_sort(L,2,9)
+print(nowaL2)
 
